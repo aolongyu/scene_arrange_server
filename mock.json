@@ -1,0 +1,28 @@
+{
+  "id": "7de756d1-2d1e-409b-abeb-67e021f7f9dc",
+  "object": "chat.completion",
+  "created": 1756454213,
+  "model": "deepseek-chat",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello! I'm doing well, thank you for asking. How are you today? 😊"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 10,
+    "completion_tokens": 19,
+    "total_tokens": 29,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 10
+  },
+  "system_fingerprint": "fp_feb633d1f5_prod0820_fp8_kvcache"
+}

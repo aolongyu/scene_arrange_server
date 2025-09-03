@@ -16,11 +16,16 @@ const createService = (_openai) => {
       //   model: "deepseek-chat",
       //   choices: [],
       // };
+      console.log("call messages", messages);
+      console.log("call options", options);
+
       const completion = await _openai.chat.completions.create({
         messages,
         model: "deepseek-chat",
         ...options,
       });
+
+      console.log("completion", completion);
 
       return completion;
     } catch (error) {

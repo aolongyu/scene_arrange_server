@@ -17,7 +17,6 @@ module.exports = {
           b: { type: "number", description: "第二个参数" },
         },
         required: ["a", "b"],
-        returnType: "number",
       },
     },
   },

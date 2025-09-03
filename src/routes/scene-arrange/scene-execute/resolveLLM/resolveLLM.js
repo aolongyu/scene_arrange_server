@@ -1,7 +1,7 @@
 const SystemMessages = require("./system-message-config");
 const callCore = require("./call-core");
 
-const resolveLLM = async (tools, handlers) => {
+const resolveLLM = async ({ tools, handlers }) => {
   try {
     const messages = [...SystemMessages];
     messages.push({

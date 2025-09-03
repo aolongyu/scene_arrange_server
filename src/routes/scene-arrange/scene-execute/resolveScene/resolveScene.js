@@ -1,6 +1,6 @@
 const { getScenes } = require("../../metadata/scenes/get-scenes-logic");
 
-const getSceneData = async (sceneKey) => {
+const resolveScene = async (sceneKey) => {
   try {
     if (!sceneKey) {
       throw new Error("Scene key is required");
@@ -15,5 +15,5 @@ const getSceneData = async (sceneKey) => {
 };
 
 module.exports = {
-  getSceneData,
+  resolveScene,
 };

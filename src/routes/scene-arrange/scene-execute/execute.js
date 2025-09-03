@@ -1,24 +1,25 @@
-const {
-  getToolDefinitions,
-  getToolHandlers,
-} = require("./resolveTools/resolve");
-const { getSceneData } = require("./resolveScene/resolve");
-const { resolveLLM } = require("./resolveLLM/resolve");
+const { log } = require("../../../utils/log");
+const { resolveTools } = require("./resolveTools/resolveTools");
+const { resolveScene } = require("./resolveScene/resolveScene");
+const { resolveLLM } = require("./resolveLLM/resolveLLM");
 
 const execute = async (req, res, next) => {
   try {
     const { sceneKey } = req.body;
     // 获取场景数据
-    const [sceneData] = await getSceneData(sceneKey);
-    // 获取工具定义
-    const toolDefinitions = await getToolDefinitions(sceneData.sceneFunctions);
-    // 获取工具处理函数
-    const toolHandlers = await getToolHandlers(toolDefinitions);
-    // LLM 调度
+    const [sceneData] = await resolveScene(sceneKey);
+    // log("sceneData", sceneData, JSON.stringify(sceneData));
+
+    // 获取工具定义及其处理函数
+    const tools = await resolveTools(sceneData);
+    // log("tools", tools, JSON.stringify(tools));
+
+    // // LLM 调度
     const llmResult = await resolveLLM({
-      tools: toolDefinitions,
-      handlers: toolHandlers,
+      tools: tools.map((tool) => tool.definition),
+      handlers: tools.map((tool) => tool.handler),
     });
+    log("llmResult", llmResult, JSON.stringify(llmResult));
 
     res.json(llmResult);
   } catch (error) {

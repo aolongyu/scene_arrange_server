@@ -5,6 +5,7 @@
  */
 
 const { openai, openaiBeta } = require("../openai.js");
+const { log } = require("../../../utils/log");
 
 const createService = (_openai) => {
   return async (messages, options = {}) => {
@@ -16,8 +17,8 @@ const createService = (_openai) => {
       //   model: "deepseek-chat",
       //   choices: [],
       // };
-      console.log("call messages", messages);
-      console.log("call options", options);
+      log("call messages", messages);
+      log("call options", options);
 
       const completion = await _openai.chat.completions.create({
         messages,
@@ -25,7 +26,7 @@ const createService = (_openai) => {
         ...options,
       });
 
-      console.log("completion", completion);
+      log("completion", completion);
 
       return completion;
     } catch (error) {

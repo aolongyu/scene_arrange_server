@@ -1,0 +1,43 @@
+{
+  "_id": {
+    "$oid": "68b69f619e0217349dcd1234"
+  },
+  "sceneKey": "scene-67d0f02e",
+  "sceneName": "链式调用007",
+  "sceneDescription": "sceneFunctions",
+  "sceneExecutionGraph": {
+    "nodes": [
+      {
+        "id": "scene-67d0f02e_node_0",
+        "type": "function",
+        "key": "function-45c1a0fb"
+      },
+      {
+        "id": "scene-67d0f02e_node_1",
+        "type": "function",
+        "key": "function-17d3e635"
+      },
+      {
+        "id": "scene-67d0f02e_node_2",
+        "type": "function",
+        "key": "function-750756c5"
+      }
+    ],
+    "edges": [
+      {
+        "from": "scene-67d0f02e_node_0",
+        "to": "scene-67d0f02e_node_1",
+        "type": "sequential"
+      },
+      {
+        "from": "scene-67d0f02e_node_0",
+        "to": "scene-67d0f02e_node_2",
+        "type": "sequential"
+      }
+    ],
+    "entryNodeId": "scene-67d0f02e_node_0"
+  },
+  "yn": 1,
+  "createTime": "2025-09-02T07:40:17.549Z",
+  "updateTime": "2025-09-02T07:40:17.549Z"
+}

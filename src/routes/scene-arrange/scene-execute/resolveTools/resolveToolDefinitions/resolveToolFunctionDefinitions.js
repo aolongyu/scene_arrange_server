@@ -1,11 +1,11 @@
-const resolveToolFunctionDefinitions = async (toolBaseInfos = []) => {
+const resolveToolFunctionDefinitions = async (toolInfos = []) => {
   try {
-    return toolBaseInfos.map((def) => ({
+    return toolInfos.map((info) => ({
       type: "function",
       function: {
-        name: def.function.name,
-        description: def.function.description,
-        parameters: def.function.parameters,
+        name: info.function.name,
+        description: info.function.description,
+        parameters: info.function.parameters,
       },
     }));
   } catch (error) {

@@ -1,4 +1,4 @@
-const resolveToolApiDefinitions = async (toolBaseInfos = []) => {
+const resolveToolApiDefinitions = async (toolInfos = []) => {
   try {
     return [];
   } catch (error) {

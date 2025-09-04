@@ -18,6 +18,7 @@ const execute = async (req, res, next) => {
     const llmResult = await resolveLLM({
       tools: tools.map((tool) => tool.definition),
       handlers: tools.map((tool) => tool.handler),
+      sceneData,
     });
     log("llmResult", llmResult, JSON.stringify(llmResult));
 

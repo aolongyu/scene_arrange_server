@@ -1,12 +1,14 @@
-const SystemMessages = require("./system-message-config");
+const PresetPrompt = require("./preset-prompt");
 const callCore = require("./call-core");
 
-const resolveLLM = async ({ tools, handlers }) => {
+const resolveLLM = async ({ tools, handlers, sceneData }) => {
   try {
-    const messages = [...SystemMessages];
+    const messages = [...PresetPrompt];
     messages.push({
       role: "user",
-      content: "4和5求和，8和10求和，前面两结果相乘，结果是多少？",
+      content:
+        "场景图结构为：" +
+        JSON.stringify(sceneData.sceneExecutionGraph, null, 2),
     });
     const llmResult = await callCore(messages, { tools, handlers });
     return llmResult;

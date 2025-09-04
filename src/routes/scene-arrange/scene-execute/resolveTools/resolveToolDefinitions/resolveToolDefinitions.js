@@ -9,7 +9,7 @@ const TOOL_TYPE = {
 };
 
 const splitToolsByType = (tools = [], type) => {
-  return tools.filter((tool) => tool.type === type);
+  return tools.filter((tool) => tool.type.startsWith(type));
 };
 
 const resolveToolDefinitions = async (toolBaseInfos = []) => {

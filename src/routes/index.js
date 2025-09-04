@@ -12,17 +12,11 @@ router.post(
   require("./deepseek/continuous-chat-completion")
 );
 
-router.post(
-  "/scene-arrange/single-chain-function-call",
-  require("./scene-arrange/single-chain-function-call")
-);
-
 // metadata / scenes
 router.get(
   "/scene-arrange/metadata/scenes/get-scenes",
   require("./scene-arrange/metadata/scenes/get-scenes")
 );
-
 router.post(
   "/scene-arrange/metadata/scenes/set-scene",
   require("./scene-arrange/metadata/scenes/set-scene")
@@ -33,7 +27,6 @@ router.get(
   "/scene-arrange/metadata/functions/get-functions",
   require("./scene-arrange/metadata/functions/get-functions")
 );
-
 router.post(
   "/scene-arrange/metadata/functions/set-function",
   require("./scene-arrange/metadata/functions/set-function")
@@ -44,5 +37,10 @@ router.post(
   "/scene-arrange/scene-execute/execute",
   require("./scene-arrange/scene-execute/execute")
 );
+
+/**
+ * test
+ */
+router.get("/test/pow2", require("./test/pow2"));
 
 module.exports = router;

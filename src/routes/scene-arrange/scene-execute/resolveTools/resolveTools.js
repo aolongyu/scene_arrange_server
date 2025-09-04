@@ -1,10 +1,10 @@
-const { log } = require("../../../../utils/log");
 const {
   resolveToolDefinitions,
 } = require("./resolveToolDefinitions/resolveToolDefinitions");
 const {
   resolveToolHandlers,
 } = require("./resolveToolHandlers/resolveToolHandlers");
+const { log } = require("../../../../utils/log");
 
 const { getDBCollection } = require("../../metadata/functions/db-config");
 const queryDBToolDefinitions = async (nodes) => {
